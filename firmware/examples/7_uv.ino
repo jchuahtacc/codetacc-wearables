@@ -3,7 +3,7 @@
 Adafruit_SI1145 uv = Adafruit_SI1145();
 
 bool init = false;
-float ultraviolet;
+double ultraviolet;
 int infrared;
 int visible;
 
@@ -12,7 +12,7 @@ void setup() {
   
   Serial.println("Adafruit SI1145 test");
   
-  while(uv.begin()) {
+  if (uv.begin()) {
       Particle.publish("Ultraviolet sensor found!");
       Particle.variable("uv", ultraviolet);
       Particle.variable("ir", infrared);

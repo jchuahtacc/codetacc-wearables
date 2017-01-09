@@ -1,5 +1,4 @@
 #include "application.h"
-#include "codetacc-wearables/codetacc-wearables.h"
 
 #define BUTTON      2
 #define LED         7
@@ -11,17 +10,23 @@ void isr() {
 }
 
 void doWork() {
+    digitalWrite(LED, HIGH);
+    delay(500);
+    digitalWrite(LED, LOW);
+    delay(500);
 }
 
 void setup() {
     pinMode(LED, OUTPUT);
-    pinMode(BUTTON, INPUT);
+    pinMode(BUTTON, INPUT_PULLDOWN);
     attachInterrupt(BUTTON, isr, RISING);
 }
 
 void loop() {
     if (signal) {
-        doWork();
+        noInterrupts();
         signal = false;
+        doWork();
+        interrupts();
     }
 }

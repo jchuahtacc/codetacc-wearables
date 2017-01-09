@@ -9,7 +9,7 @@ int flash(String parameters = "") {
 }
 
 void setup() {
-      pinMode(7, OUTPUT);
+    pinMode(7, OUTPUT);
 }
 
 void loop() {

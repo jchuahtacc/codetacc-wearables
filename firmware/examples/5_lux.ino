@@ -7,7 +7,7 @@
   
 Adafruit_TSL2561_Unified tsl = Adafruit_TSL2561_Unified(TSL2561_ADDR_FLOAT, 12345);
 
-float lux;
+double lux;
 bool init = false;
 
 void setup(void) {
@@ -15,7 +15,7 @@ void setup(void) {
         Particle.publish("Lux sensor found!");
         tsl.enableAutoRange(true);
         tsl.setIntegrationTime(TSL2561_INTEGRATIONTIME_13MS);
-        Particle.publish("lux", lux); 
+        Particle.variable("lux", lux); 
         init = true;
     } else {
         Particle.publish("Lux sensor could not be found!");
