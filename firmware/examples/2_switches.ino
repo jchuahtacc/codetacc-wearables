@@ -1,5 +1,5 @@
 #include "application.h"
-#include "codetacc-robotics/codetacc-robotics.h"
+#include "codetacc-wearables/codetacc-wearables.h"
 
 #define BUTTON      2
 #define LED         7
